@@ -6,6 +6,10 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.sendFile('index.html', { root: __dirname });
+});
+
 app.post('/webhook', (req, res) => {
   const { body } = req;
   const jsonBody = JSON.stringify(body, null, 2);
