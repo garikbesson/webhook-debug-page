@@ -11,8 +11,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/webhook', (req, res) => {
-  // const { body } = req;
-  const jsonBody = JSON.stringify(req, null, 2);
+  const { body } = req;
+  console.log('Req: ', req);
+  console.log('Body: ', body);
+  
+  const jsonBody = JSON.stringify(body, null, 2);
 
   fs.readFile('./index.html', 'utf8', (err, data) => {
     if (err) {
